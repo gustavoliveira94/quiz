@@ -5,6 +5,7 @@ const Container = styled.div`
     height: 120px;
     background-color: #fff;
     padding: 10px;
+    margin: 0 20px;
 
     :hover {
         cursor: pointer;

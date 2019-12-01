@@ -14,6 +14,10 @@ const Create = styled.div`
     cursor: pointer;
     box-shadow: 2px 3px 10px 1px rgba(0, 0, 0, 0.59);
 
+    a {
+        text-decoration: none;
+    }
+
     p {
         font-size: 48px;
         color: #fff;
