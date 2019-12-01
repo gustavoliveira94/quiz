@@ -7,7 +7,8 @@ const INITIAL_STATE = {
         questions: [
             {
                 name: '',
-                answer: '',
+                answers: [],
+                correct: '',
             },
         ],
     },

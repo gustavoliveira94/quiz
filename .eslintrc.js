@@ -41,6 +41,17 @@ module.exports = {
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
     'no-plusplus': 'off',
-    'no-alert': 'off'
+    'no-alert': 'off',
+    "jsx-a11y/label-has-associated-control": [ "error", {
+        "required": {
+          "some": [ "nesting", "id"  ]
+        }
+    }],
+    "jsx-a11y/label-has-for": [ "error", {
+        "required": {
+          "some": [ "nesting", "id"  ]
+        }
+    }],
+    "jsx-a11y/no-static-element-interactions": "error"
   },
 };
