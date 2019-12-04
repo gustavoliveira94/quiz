@@ -1,31 +1,15 @@
-import { SET_QUIZ, GET_QUIZ } from '../actionsTypes';
+import { QUIZ } from '../actionsTypes';
 
 const INITIAL_STATE = {
-    setQuiz: {
-        name: '',
-        description: '',
-        questions: [
-            {
-                name: '',
-                answers: [],
-                correct: '',
-            },
-        ],
-    },
-    getQuiz: [],
+    quiz: [],
 };
 
 export const quiz = (state = INITIAL_STATE, action) => {
     switch (action.type) {
-        case SET_QUIZ:
+        case QUIZ:
             return {
                 ...state,
-                setQuiz: action.data,
-            };
-        case GET_QUIZ:
-            return {
-                ...state,
-                getQuiz: action.data,
+                quiz: [...state.quiz, action.data],
             };
         default:
             return state;

@@ -1,9 +1,10 @@
-import { SET_QUIZ } from '../actionsTypes';
+import { QUIZ } from '../actionsTypes';
 
 export const setQuiz = ({ name, description, questions }) => {
+    console.log(questions);
     return dispatch => {
         dispatch({
-            type: SET_QUIZ,
+            type: QUIZ,
             data: { name, description, questions },
         });
     };

@@ -1,10 +1,7 @@
 import styled from 'styled-components';
 
-const Send = styled.button`
-    position: absolute;
-    bottom: 10px;
-    left: 50px;
-    width: 500px;
+const Action = styled.button`
+    width: 40%;
     height: 50px;
     background-color: #2d132c;
     color: #fff;
@@ -13,4 +10,4 @@ const Send = styled.button`
     cursor: pointer;
 `;
 
-export default Send;
+export default Action;
