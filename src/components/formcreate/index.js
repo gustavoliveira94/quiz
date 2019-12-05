@@ -49,16 +49,20 @@ const FormCreate = () => {
         e.preventDefault();
     };
 
+    const resetForm = () => {
+        setQuestions({
+            ...questions,
+            question: '',
+            answers: [],
+            textAnswers: '',
+            correct: '',
+        });
+    };
+
     const createMoreAnswers = e => {
         e.preventDefault();
         if (questions.answers.length >= 4) {
-            setQuestions({
-                ...questions,
-                question: '',
-                answers: [],
-                textAnswers: '',
-                correct: '',
-            });
+            resetForm();
             setMore({
                 ...more,
                 add: [

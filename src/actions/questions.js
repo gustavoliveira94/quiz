@@ -5,7 +5,12 @@ export const setQuiz = ({ name, description, questions }) => {
     return dispatch => {
         dispatch({
             type: QUIZ,
-            data: { name, description, questions },
+            data: {
+                _id: Math.floor(Math.random() * 161102312113245646500),
+                name,
+                description,
+                questions,
+            },
         });
     };
 };
