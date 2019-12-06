@@ -1,17 +1,7 @@
-import { SET_QUIZ, GET_QUIZ } from '../actionsTypes';
+import { SET_QUIZ, REMOVE_QUIZ } from '../actionsTypes';
 
 const INITIAL_STATE = {
-    setQuiz: {
-        name: '',
-        description: '',
-        questions: [
-            {
-                name: '',
-            },
-        ],
-        answer: '',
-    },
-    getQuiz: [],
+    quiz: [],
 };
 
 export const quiz = (state = INITIAL_STATE, action) => {
@@ -19,12 +9,12 @@ export const quiz = (state = INITIAL_STATE, action) => {
         case SET_QUIZ:
             return {
                 ...state,
-                setQuiz: action.data,
+                quiz: [...state.quiz, action.data],
             };
-        case GET_QUIZ:
+        case REMOVE_QUIZ:
             return {
                 ...state,
-                getQuiz: action.data,
+                quiz: [...state.quiz.filter(q => q._id !== action.data)],
             };
         default:
             return state;

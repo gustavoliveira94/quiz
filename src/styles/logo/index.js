@@ -15,7 +15,7 @@ const Logo = styled.div`
 
     h1 {
         font-family: 'Alatsi', sans-serif;
-        color: #fff;
+        color: #000;
     }
 `;
 

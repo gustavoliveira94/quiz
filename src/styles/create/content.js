@@ -3,10 +3,9 @@ import styled from 'styled-components';
 const Content = styled.div`
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    flex-wrap: wrap;
+    align-items: center;
     width: 90%;
-    max-width: 1200px;
+    height: 100%;
     margin: 50px 5%;
 `;
 
