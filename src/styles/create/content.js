@@ -1,8 +1,12 @@
 import styled from 'styled-components';
 
 const Content = styled.div`
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
     height: 100%;
+    margin: 40px 5%;
 `;
 
 export default Content;

@@ -6,7 +6,6 @@ const Questions = styled.div`
     justify-content: flex-start;
     align-items: flex-start !important;
     width: 100%;
-    overflow-y: scroll;
 
     i {
         color #f00;

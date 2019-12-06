@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Content = styled.div`
     width: 500px;
-    height: 80%;
+    height: calc(100% - 60px);
     max-height: 800px;
     display: flex;
     justify-content: flex-start;
@@ -14,7 +14,8 @@ const Content = styled.div`
 
     @media (max-width: 500px) {
         width: 90%;
-        margin: 60px 5%;
+        margin: 30px 5%;
+        min-height: 400px;
     }
 `;
 

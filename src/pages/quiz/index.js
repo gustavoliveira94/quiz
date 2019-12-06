@@ -42,56 +42,58 @@ const Quiz = () => {
     };
 
     return (
-        <Container>
+        <>
             <Top />
-            <Content>
-                <Title>
-                    <span>
-                        {quiz[0].questions.length > 1
-                            ? 'Perguntas:'
-                            : 'Pergunta:'}{' '}
-                        {quiz[0].questions.length}
-                    </span>
-                    <h2 title={quiz.map(q => q.name)}>
-                        {quiz.map(q => q.name)}
-                    </h2>{' '}
-                    <span>R. certas: {count}</span>
-                </Title>
-                <Questions>
-                    {quiz[0].questions.map(q => (
-                        <ContentQuestions key={q.question}>
-                            <h3>Pergunta: {q.question}</h3>
-                            <br />
-                            {q.answers.map((answer, index) => (
-                                <ContentAnswer key={index}>
-                                    <Answer
-                                        type="button"
-                                        correct={correct.find(
-                                            c => c._id === answer._id
-                                        )}
-                                        incorrect={incorrect.find(
-                                            c => c._id === answer._id
-                                        )}
-                                        disabled={disabled.find(
-                                            a => a === q.question
-                                        )}
-                                        onClick={() =>
-                                            verifyAnswer(
-                                                q.correct,
-                                                answer,
-                                                q.question
-                                            )
-                                        }
-                                    >
-                                        <p>{answer.name}</p>
-                                    </Answer>
-                                </ContentAnswer>
-                            ))}
-                        </ContentQuestions>
-                    ))}
-                </Questions>
-            </Content>
-        </Container>
+            <Container>
+                <Content>
+                    <Title>
+                        <span>
+                            {quiz[0].questions.length > 1
+                                ? 'Perguntas:'
+                                : 'Pergunta:'}{' '}
+                            {quiz[0].questions.length}
+                        </span>
+                        <h2 title={quiz.map(q => q.name)}>
+                            {quiz.map(q => q.name)}
+                        </h2>{' '}
+                        <span>R. certas: {count}</span>
+                    </Title>
+                    <Questions>
+                        {quiz[0].questions.map(q => (
+                            <ContentQuestions key={q.question}>
+                                <h3>Pergunta: {q.question}</h3>
+                                <br />
+                                {q.answers.map((answer, index) => (
+                                    <ContentAnswer key={index}>
+                                        <Answer
+                                            type="button"
+                                            correct={correct.find(
+                                                c => c._id === answer._id
+                                            )}
+                                            incorrect={incorrect.find(
+                                                c => c._id === answer._id
+                                            )}
+                                            disabled={disabled.find(
+                                                a => a === q.question
+                                            )}
+                                            onClick={() =>
+                                                verifyAnswer(
+                                                    q.correct,
+                                                    answer,
+                                                    q.question
+                                                )
+                                            }
+                                        >
+                                            <p>{answer.name}</p>
+                                        </Answer>
+                                    </ContentAnswer>
+                                ))}
+                            </ContentQuestions>
+                        ))}
+                    </Questions>
+                </Content>
+            </Container>
+        </>
     );
 };
 
