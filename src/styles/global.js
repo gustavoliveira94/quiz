@@ -9,11 +9,12 @@ const GlobalStyle = createGlobalStyle`
         font-family: 'Poppins', sans-serif;
     }
 
-    html. body, #root {
-        min-height: 100vh;
+    html, body, #root {
+        height: 100vh;
     }
 
     body {
+        overflow-y: hidden;
         -webkit-font-smoothing: antialiased !important;
         background-color: #e7ecef;
     }

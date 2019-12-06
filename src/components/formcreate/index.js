@@ -18,8 +18,9 @@ import { setQuiz } from '../../actions';
 
 const FormCreate = () => {
     const quizes = useSelector(({ quiz }) => quiz);
-    console.log(quizes);
     const dispatch = useDispatch();
+
+    const [error, setError] = useState('');
 
     const [info, setInfo] = useState({
         name: '',
@@ -71,7 +72,7 @@ const FormCreate = () => {
 
     const createMoreAnswers = e => {
         e.preventDefault();
-        if (questions.answers.length >= 4) {
+        if (questions.answers.length >= 4 && questions.correct) {
             resetForm();
             setMore({
                 ...more,
@@ -84,6 +85,12 @@ const FormCreate = () => {
                     },
                 ],
             });
+        }
+
+        if (questions.answers.length >= 4) {
+            setError('Por favor, adicione uma resposta correta!');
+        } else {
+            setError('Por favor, adicione pelo menos 4 respostas!');
         }
     };
 
@@ -99,10 +106,12 @@ const FormCreate = () => {
                 })
             );
             window.location = '/';
+        } else {
+            setError('Por favor, adicione pelo menos 1 pergunta!');
         }
     };
 
-    console.log(questions.answers);
+    console.log(more);
 
     return (
         <Form>
@@ -153,6 +162,7 @@ const FormCreate = () => {
                 name="answers"
                 onChange={e => handleAnswers(e)}
             />
+            <small style={{ color: '#f05' }}>{error}</small>
             <ContentQuestions>
                 {questions.answers.length >= 1 &&
                     questions.answers.map((question, index) => (
