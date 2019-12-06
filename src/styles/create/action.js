@@ -8,6 +8,10 @@ const Action = styled.button`
     font-size: 18px;
     border: 0;
     cursor: pointer;
+
+    @media (max-width: 500px) {
+        font-size: 16px;
+    }
 `;
 
 export default Action;

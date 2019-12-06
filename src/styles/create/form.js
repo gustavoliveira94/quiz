@@ -6,10 +6,16 @@ const Form = styled.form`
     height: 800px;
     background-color: #fff;
     padding: 15px;
-    overflow: scroll;
+    overflow-y: scroll;
 
     label {
         color: #000;
+    }
+
+    @media (max-width: 500px) {
+        width: 90%;
+        height: 100%;
+        margin: 60px 5%;
     }
 `;
 

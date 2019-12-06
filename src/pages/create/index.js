@@ -11,14 +11,12 @@ import FormCreate from '../../components/formcreate';
 
 const Create = () => {
     return (
-        <>
+        <Container>
             <Top />
-            <Container>
-                <Content>
-                    <FormCreate />
-                </Content>
-            </Container>
-        </>
+            <Content>
+                <FormCreate />
+            </Content>
+        </Container>
     );
 };
 

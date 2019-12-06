@@ -10,12 +10,11 @@ const GlobalStyle = createGlobalStyle`
     }
 
     html. body, #root {
-        min-height: 100%;
+        min-height: 100vh;
     }
 
     body {
         -webkit-font-smoothing: antialiased !important;
-        overflow-y: hidden;
         background-color: #e7ecef;
     }
 `;

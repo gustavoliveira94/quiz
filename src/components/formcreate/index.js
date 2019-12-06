@@ -11,6 +11,7 @@ import Questions from '../../styles/create/questions';
 import Action from '../../styles/create/action';
 import ContentActions from '../../styles/create/contentactions';
 import Add from '../../styles/create/add';
+import ContentQuestions from '../../styles/create/contentquestions';
 
 // Actions
 import { setQuiz } from '../../actions';
@@ -152,15 +153,17 @@ const FormCreate = () => {
                 name="answers"
                 onChange={e => handleAnswers(e)}
             />
-            {questions.answers.length >= 1 &&
-                questions.answers.map((question, index) => (
-                    <Questions key={index}>
-                        <span>
-                            Resposta: {question.name}{' '}
-                            <i className="fas fa-minus-circle" />
-                        </span>
-                    </Questions>
-                ))}
+            <ContentQuestions>
+                {questions.answers.length >= 1 &&
+                    questions.answers.map((question, index) => (
+                        <Questions key={index}>
+                            <span>
+                                Resposta: {question.name}{' '}
+                                <i className="fas fa-minus-circle" />
+                            </span>
+                        </Questions>
+                    ))}
+            </ContentQuestions>
             <ContentActions>
                 <Action onClick={e => createQuiz(e)}>Criar</Action>
                 <Action onClick={e => createMoreAnswers(e)}>
