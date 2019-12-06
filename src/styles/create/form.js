@@ -3,12 +3,13 @@ import styled from 'styled-components';
 const Form = styled.form`
     position: relative;
     width: 600px;
-    height: calc(100vh - 160px);
+    height: 800px;
     background-color: #fff;
     padding: 15px;
+    overflow: scroll;
 
     label {
-        color: #2d132c;
+        color: #000;
     }
 `;
 

@@ -5,6 +5,14 @@ const Questions = styled.div`
     height: 100%;
     padding: 15px;
     overflow-y: scroll;
+
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #d3d3d3;
+    }
 `;
 
 export default Questions;

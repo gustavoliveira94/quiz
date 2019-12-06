@@ -16,8 +16,9 @@ import Add from '../../styles/create/add';
 import { setQuiz } from '../../actions';
 
 const FormCreate = () => {
+    const quizes = useSelector(({ quiz }) => quiz);
+    console.log(quizes);
     const dispatch = useDispatch();
-    const quiz = useSelector(state => state);
 
     const [info, setInfo] = useState({
         name: '',
@@ -43,7 +44,15 @@ const FormCreate = () => {
         if (questions.textAnswers.trim()) {
             setQuestions({
                 ...questions,
-                answers: [...questions.answers, questions.textAnswers],
+                answers: [
+                    ...questions.answers,
+                    {
+                        _id: Math.floor(
+                            Math.random() * 132156102364564132132456
+                        ),
+                        name: questions.textAnswers,
+                    },
+                ],
             });
         }
         e.preventDefault();
@@ -88,11 +97,11 @@ const FormCreate = () => {
                     questions: more.add,
                 })
             );
+            window.location = '/';
         }
     };
 
-    console.log('quiz', quiz);
-    console.log('add', more);
+    console.log(questions.answers);
 
     return (
         <Form>
@@ -143,11 +152,11 @@ const FormCreate = () => {
                 name="answers"
                 onChange={e => handleAnswers(e)}
             />
-            {questions &&
+            {questions.answers.length >= 1 &&
                 questions.answers.map((question, index) => (
-                    <Questions>
-                        <span key={index}>
-                            Resposta: {question}{' '}
+                    <Questions key={index}>
+                        <span>
+                            Resposta: {question.name}{' '}
                             <i className="fas fa-minus-circle" />
                         </span>
                     </Questions>
@@ -155,7 +164,7 @@ const FormCreate = () => {
             <ContentActions>
                 <Action onClick={e => createQuiz(e)}>Criar</Action>
                 <Action onClick={e => createMoreAnswers(e)}>
-                    Nova Pergunta
+                    Adicionar Pergunta
                 </Action>
             </ContentActions>
         </Form>

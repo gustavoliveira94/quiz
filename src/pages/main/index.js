@@ -15,20 +15,22 @@ const Main = () => {
     const renderQuiz = useSelector(({ quiz }) => quiz);
     console.log(renderQuiz);
     return (
-        <Container>
+        <>
             <Top />
-            <Content>
-                {renderQuiz &&
-                    renderQuiz.quiz.map(quiz => (
-                        <Questions key={quiz._id} data={quiz} />
-                    ))}
-            </Content>
-            <Create>
-                <Link to="/create">
-                    <p>+</p>
-                </Link>
-            </Create>
-        </Container>
+            <Container>
+                <Content>
+                    {renderQuiz &&
+                        renderQuiz.quiz.map(quiz => (
+                            <Questions key={quiz._id} data={quiz} />
+                        ))}
+                </Content>
+                <Create>
+                    <Link to="/create">
+                        <p>+</p>
+                    </Link>
+                </Create>
+            </Container>
+        </>
     );
 };
 

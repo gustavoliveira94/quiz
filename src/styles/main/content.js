@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 const Content = styled.div`
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
     width: 90%;
-    height: 100%;
+    max-width: 1200px;
     margin: 50px 5%;
 `;
 
