@@ -7,6 +7,7 @@
 3. Instale as dependências do projeto: `yarn install` ou `npm install`
 4. Inicie o ambiente de desenvolvimento: `npm start` ou `yarn start`.
 5. Rodar testes unitários: `npm test` ou `yarn test`.
+6. Jogue online: [Quiz](https://gustavoliveira94.github.io/quiz/)
 
 ## Principais dependências
 
