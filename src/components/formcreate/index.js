@@ -184,7 +184,20 @@ const FormCreate = () => {
                         <Answers key={index}>
                             <span>
                                 Resposta: {question.name}{' '}
-                                <i className="fas fa-minus-circle" />
+                                <i
+                                    onClick={() => {
+                                        setQuestions({
+                                            ...questions,
+                                            answers: [
+                                                ...questions.answers.filter(
+                                                    a =>
+                                                        a.name !== question.name
+                                                ),
+                                            ],
+                                        });
+                                    }}
+                                    className="fas fa-minus-circle"
+                                />
                             </span>
                         </Answers>
                     ))}
