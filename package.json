@@ -1,7 +1,7 @@
 {
   "name": "quiz",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "homepage": "http://gustavoliveira94.github.io/quiz",
   "dependencies": {
     "prop-types": "^15.7.2",
