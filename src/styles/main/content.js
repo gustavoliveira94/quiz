@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Content = styled.div`
+const Content = styled.ul`
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -8,6 +8,10 @@ const Content = styled.div`
     width: 90%;
     max-width: 1200px;
     margin: 50px 5%;
+
+    li {
+        list-style: none;
+    }
 `;
 
 export default Content;

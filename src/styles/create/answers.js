@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Questions = styled.div`
+const Answers = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -13,4 +13,4 @@ const Questions = styled.div`
     }
 `;
 
-export default Questions;
+export default Answers;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const ContentQuestions = styled.div`
+const ContentAnswers = styled.div`
     width: 100%;
     min-height: calc(100% - 430px);
     height: 200px;
@@ -15,4 +15,4 @@ const ContentQuestions = styled.div`
     }
 `;
 
-export default ContentQuestions;
+export default ContentAnswers;
