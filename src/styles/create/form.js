@@ -3,7 +3,8 @@ import styled from 'styled-components';
 const Form = styled.form`
     position: relative;
     width: 600px;
-    height: 800px;
+    height: 80%;
+    max-height: 800px;
     background-color: #fff;
     padding: 15px;
     overflow-y: scroll;

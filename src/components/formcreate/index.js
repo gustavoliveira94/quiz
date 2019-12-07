@@ -116,7 +116,7 @@ const FormCreate = () => {
                 questions: more.add,
             })
         );
-        window.location = '/';
+        window.location = `${process.env.PUBLIC_URL}/`;
     };
 
     return (
