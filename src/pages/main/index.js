@@ -18,14 +18,14 @@ const Main = () => {
         <>
             <Top />
             <Container>
-                <Content>
+                <Content data-testid="quiz">
                     {renderQuiz &&
                         renderQuiz.quiz.map(quiz => (
                             <Questions key={quiz._id} data={quiz} />
                         ))}
                 </Content>
                 <Create>
-                    <Link to="/create">
+                    <Link to="/create" data-testid="create">
                         <p>+</p>
                     </Link>
                 </Create>

@@ -2,22 +2,21 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable react/no-array-index-key */
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 // Styles
 import Form from '../../styles/create/form';
 import Input from '../../styles/create/input';
-import Questions from '../../styles/create/questions';
+import Answers from '../../styles/create/answers';
 import Action from '../../styles/create/action';
 import ContentActions from '../../styles/create/contentactions';
 import Add from '../../styles/create/add';
-import ContentQuestions from '../../styles/create/contentquestions';
+import ContentAnswers from '../../styles/create/contentanswers';
 
 // Actions
 import { setQuiz } from '../../actions';
 
 const FormCreate = () => {
-    const quizes = useSelector(({ quiz }) => quiz);
     const dispatch = useDispatch();
 
     const [error, setError] = useState('');
@@ -72,7 +71,11 @@ const FormCreate = () => {
 
     const createMoreAnswers = e => {
         e.preventDefault();
-        if (questions.answers.length >= 4 && questions.correct) {
+        if (
+            questions.answers.length >= 4 &&
+            questions.correct &&
+            questions.question
+        ) {
             resetForm();
             setMore({
                 ...more,
@@ -85,53 +88,59 @@ const FormCreate = () => {
                     },
                 ],
             });
+            setError('');
         }
 
-        if (questions.answers.length >= 4) {
+        if (!questions.question) {
+            setError('Por favor, adicione uma pergunta!');
+        }
+
+        if (!questions.correct) {
             setError('Por favor, adicione uma resposta correta!');
-        } else {
+        }
+
+        if (questions.answers.length < 4) {
             setError('Por favor, adicione pelo menos 4 respostas!');
         }
     };
 
     const createQuiz = e => {
         e.preventDefault();
-        createMoreAnswers(e);
-        if (more.add.length >= 1) {
-            dispatch(
-                setQuiz({
-                    name: info.name,
-                    description: info.description,
-                    questions: more.add,
-                })
-            );
-            window.location = '/';
-        } else {
+        if (more.add.length < 1) {
             setError('Por favor, adicione pelo menos 1 pergunta!');
         }
+        dispatch(
+            setQuiz({
+                name: info.name,
+                description: info.description,
+                questions: more.add,
+            })
+        );
+        window.location = '/';
     };
-
-    console.log(more);
 
     return (
         <Form>
             <label htmlFor="name">Nome:</label>
             <Input
+                data-testid="name"
                 name="name"
                 required
                 onChange={e => setInfo({ ...info, name: e.target.value })}
             />
             <label htmlFor="description">Descrição:</label>
             <Input
+                data-testid="description"
                 name="description"
                 required
                 onChange={e =>
                     setInfo({ ...info, description: e.target.value })
                 }
             />
-            <label htmlFor="answers">Pergunta:</label>
+            <label htmlFor="question">Pergunta:</label>
             <Input
-                name="answers"
+                data-testid="question"
+                name="question"
                 value={questions.question}
                 onChange={e =>
                     setQuestions({
@@ -142,6 +151,7 @@ const FormCreate = () => {
             />
             <label htmlFor="correct">Resposta correta:</label>
             <Input
+                data-testid="correct"
                 name="correct"
                 value={questions.correct}
                 onChange={e =>
@@ -153,30 +163,40 @@ const FormCreate = () => {
             />
             <Add>
                 <label htmlFor="answers">Respostas:</label>
-                <button type="button" onClick={e => createAnswers(e)}>
+                <button
+                    type="button"
+                    onClick={e => createAnswers(e)}
+                    data-testid="create-answers"
+                >
                     <i className="fas fa-plus-circle" />
                 </button>
             </Add>
             <Input
+                data-testid="answers"
                 value={questions.textAnswers}
                 name="answers"
                 onChange={e => handleAnswers(e)}
             />
             <small style={{ color: '#f05' }}>{error}</small>
-            <ContentQuestions>
+            <ContentAnswers data-testid="content-answers">
                 {questions.answers.length >= 1 &&
                     questions.answers.map((question, index) => (
-                        <Questions key={index}>
+                        <Answers key={index}>
                             <span>
                                 Resposta: {question.name}{' '}
                                 <i className="fas fa-minus-circle" />
                             </span>
-                        </Questions>
+                        </Answers>
                     ))}
-            </ContentQuestions>
+            </ContentAnswers>
             <ContentActions>
-                <Action onClick={e => createQuiz(e)}>Criar</Action>
-                <Action onClick={e => createMoreAnswers(e)}>
+                <Action data-testid="create-quiz" onClick={e => createQuiz(e)}>
+                    Criar
+                </Action>
+                <Action
+                    data-testid="create-more-answers"
+                    onClick={e => createMoreAnswers(e)}
+                >
                     Adicionar Pergunta
                 </Action>
             </ContentActions>
