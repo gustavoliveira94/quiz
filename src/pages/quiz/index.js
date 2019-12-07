@@ -17,7 +17,6 @@ import Top from '../../components/top';
 
 const Quiz = () => {
     const quizId = useSelector(({ quiz }) => quiz);
-    console.log(quizId);
     const [disabled, setDisabled] = useState([]);
     const [answers, setAnswers] = useState([]);
     const [correct, setCorrect] = useState([]);

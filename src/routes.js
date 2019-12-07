@@ -10,9 +10,19 @@ const Routes = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route path="/" exact component={Main} />
-                <Route path="/create" component={Create} />
-                <Route path="/quiz/:id" component={Quiz} />
+                <Route
+                    path={`${process.env.PUBLIC_URL}/`}
+                    exact
+                    component={Main}
+                />
+                <Route
+                    path={`${process.env.PUBLIC_URL}/create`}
+                    component={Create}
+                />
+                <Route
+                    path={`${process.env.PUBLIC_URL}/quiz/:id`}
+                    component={Quiz}
+                />
             </Switch>
         </BrowserRouter>
     );

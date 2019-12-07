@@ -13,7 +13,6 @@ import Top from '../../components/top';
 
 const Main = () => {
     const renderQuiz = useSelector(({ quiz }) => quiz);
-    console.log(renderQuiz);
     return (
         <>
             <Top />
